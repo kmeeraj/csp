@@ -1,0 +1,66 @@
+/*
+ * Copyright (C) 2020 - 2021 by Teradata Corporation. All rights reserved.
+ * TERADATA CORPORATION CONFIDENTIAL AND TRADE SECRET
+ */
+
+@mixin app-component-theme($theme) {
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  $is-dark: map-get($theme, is-dark);
+
+  $divider: map-get($foreground, divider);
+  $card: map-get($background, card);
+  $bar: map-get($background, app-bar);
+  $negative: map-get($foreground, negative);
+  $accent: map-get(map-get($theme, accent), default);
+  $primary: map-get(map-get($theme, primary), default);
+  $text: map-get($foreground, text);
+
+  // @media screen and (min-width: 1600px) {
+  //   .main-container {
+  //     width: 90%;
+  //   }
+  // }
+  // @media screen and (min-width: 1900px) {
+  //   .main-container {
+  //     width: 80%;
+  //   }
+  // }
+  // .layout-home {
+  //   button {
+  //     border: none;
+  //   }
+  // }
+  //   .material-icons {
+  //     color: $text;
+  //   }
+  // }
+
+  body {
+    // background-color: $primary;
+    background-image: none;
+    position: relative;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mainBody {
+    height: 100%;
+    border-top: solid orange;
+    border-width: 0 2px;
+  }
+
+  // .mat-icon {
+  //   color: $text;
+  // }
+
+  // .primary-action-text-color {
+  //   // @if $is-dark {
+  //   //   @extend .tc-black-4;
+  //   // } @else {
+  //   //   @extend .tc-white-4;
+  //   // }
+  //   @extend .tc-black;
+  // }
+}

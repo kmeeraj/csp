@@ -1,0 +1,12 @@
+/*
+ * Copyright (C) 2020 - 2021 by Teradata Corporation. All rights reserved.
+ * TERADATA CORPORATION CONFIDENTIAL AND TRADE SECRET
+ */
+
+@import '../app/app.component.theme.scss';
+
+
+@mixin component-themes($theme) {
+  @include app-component-theme($theme);
+
+}

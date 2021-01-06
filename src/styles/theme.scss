@@ -1,0 +1,106 @@
+/*
+ * Copyright (C) 2020 - 2021 by Teradata Corporation. All rights reserved.
+ * TERADATA CORPORATION CONFIDENTIAL AND TRADE SECRET
+ */
+
+@import '~@angular/material/theming';
+@import '~@covalent/core/theming/all-theme';
+@import '~@covalent/highlight/highlight-theme';
+// Custom typography
+$custom-typography: mat-typography-config(
+  $button: mat-typography-level(14px, 14px, 400),
+  $font-family: 'ArialMT, Arial, sans-serif',
+);
+//$custom-toolbar-typography: mat-typography-config(
+//   $title: mat-typography-level(20px, 32px, 400)
+//);
+
+// Include the base styles for Angular Material core. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+@include mat-core($custom-typography);
+// @include mat-core();
+@import './teradata-branding';
+@import '../assets/font/ridley-grotesk';
+@import '~@td-vantage/ui-platform/theming';
+
+@include covalent-core();
+
+@import '~@covalent/core/common/material-icons.css';
+// @import "~@covalent/markdown/markdown-theme";
+// @import "~@covalent/flavored-markdown/flavored-markdown-theme";
+// @import '~@covalent/core/common/material-icons.css';
+@import './component-theme.scss';
+
+// Setting the toolbar to the proper spec weight
+// @include mat-toolbar-typography($custom-toolbar-typography);
+
+// Include the core styles for Covalent
+
+// Include material icons
+// $mat-font-url: "~@covalent/core/common/styles/font/";
+
+// Include covalent utility classes
+@include covalent-utilities();
+
+// Include flex layout classes
+@include covalent-layout();
+
+// Include covalent color classes
+@include covalent-colors();
+// @include covalent-material-icons();
+@include covalent-highlight-theme();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+
+/* ------------------------------------- LIGHT THEME ------------------------------------------ */
+$primary: $td-primary;
+$accent: $td-accent;
+// $accent: $td-dark-accent; // commenting the dark accent color and using light accent for light theme
+$warn: $td-warn;
+
+// Create the theme object (a Sass map containing all of the palettes).
+$theme: mat-light-theme($primary, $accent, $warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($theme);
+@include covalent-theme($theme);
+// Include Teradata brand
+@include teradata-brand($theme);
+// @include covalent-markdown-theme($theme);
+// @include covalent-flavored-markdown-theme($theme);
+@include component-themes($theme);
+
+/* ------------------------------------- LIGHT THEME ------------------------------------------ */
+
+/* ------------------------------------- DARK THEME ------------------------------------------ */
+
+.dark-theme {
+  $dark-primary: $td-dark-primary;
+  $dark-accent: $td-dark-accent;
+  // $dark-accent: $td-accent;  // commenting the light accent color and using dark accent for dark theme
+  $dark-warn: $td-dark-warn;
+
+  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+  @include angular-material-theme($dark-theme);
+  @include covalent-theme($dark-theme);
+  // Include Teradata brand
+  @include teradata-brand($dark-theme);
+  // @include covalent-markdown-theme($dark-theme);
+  // @include covalent-flavored-markdown-theme($dark-theme);
+  @include component-themes($dark-theme);
+
+  // [class^="tc-grey-"],
+  // [class*=" tc-grey-"] {
+  //   color: white;
+  // }
+  // .mat-focused:not(.mat-form-field-invalid) .mat-form-field-placeholder {
+  //   color: mat-color($td-dark-primary, lighter);
+  // }
+}
+
+/* ------------------------------------- DARK THEME ------------------------------------------ */

@@ -1,0 +1,5 @@
+{
+  "SystemName": "sdt34700.labs.teradata.com",
+  "JWT_AUTH": "on",
+  "PAYLOAD_ENCRYPTION": "on"
+}
